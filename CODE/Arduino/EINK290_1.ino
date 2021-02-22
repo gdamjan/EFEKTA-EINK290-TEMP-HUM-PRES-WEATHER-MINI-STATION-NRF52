@@ -660,7 +660,7 @@ void displayTemp(float temp, bool metr) {
 
   int temperature_temp = round(temp * 10.0);
 
-  if (metr) {
+  if (!metr) {
     if (temperature_temp >= 100) {
 
       DrawImageWH(&paint, 24, 63, NTC, 16, 20, colorPrint);
@@ -3769,7 +3769,7 @@ void readData() {
   if (!metric) {
     temperatureSens = temperatureSens * 9.0F / 5.0F + 32.0F;
   } else {
-    pressureSens = pressureSens * 0.75006375541921F;
+  //  pressureSens = pressureSens * 0.75006375541921F;
   }
   if (abs(temperatureSens - old_temperature) >= tempThreshold) {
     old_temperature = temperatureSens;
